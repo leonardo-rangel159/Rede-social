@@ -1,9 +1,6 @@
 <?php
-  session_start();
-  isset($_SESSION['usuario'])?header('Location: pagina-pricipal.php'):"";     
+  session_start();    
   include('conexao.php');
-  error_reporting(0);
-  ini_set(“display_errors”, 0 );
 
   $nome = isset($_POST["tNome"])?$_POST["tNome"]:"";
   $email = isset($_POST["tEmail"])?$_POST["tEmail"]:"";
@@ -16,50 +13,41 @@
   $tele = isset($_POST["tTele"])?$_POST["tTele"]:"";
   $sexo = isset($_POST["tSexo"])?$_POST["tSexo"]:"";
   $nomes = isset($_POST["tNomeS"])?$_POST["tNomeS"]:"";
-  $ano = date ("Y-m-d");
-  $idade = $ano - $data;
-  
-  if ($nome != "") {
-    if($senha != $rsenha){
-      $_SESSION['nao_autorizado'] = true;
-      header('Location: cadastro.php');
-      exit();
+  $idade = (date("Y-m-d")) - $data;
+
+ if ($nome != "") { // Não permitir que acessem essa pagina
+    if($senha != $rsenha){// Vai verificar se as senhas são iguais 
+      $_SESSION['notificacao'] = 0;
     }
-    elseif($idade < 14 || ""){
-      $_SESSION['nao_autorizado1'] = true;
-      header('Location: cadastro.php');
-      exit();
+    elseif($idade < 14 || ""){// vai verificar a idade
+      $_SESSION['notificacao'] = 1;
     }
-    elseif($sexo === "outros"){
+    elseif($sexo === "outros"){// vai outrar o sexo da pessoa
       $sexo = $_POST["Texto"];
     }
 
-    $teste = "INSERT INTO `usuario` (nome, email, senha, rsenha, cidade, bairro, curso, data_de_nascimento, telefone, genero, nome_social, data_criacao, situacao) VALUES ";
-    $teste .= "('$nome', '$email', '$senha', '$rsenha', '$cidade', '$bairro', '$curso', '$data', '$tele', '$sexo', '$nomes', '$ano', 1)";
+    $teste = "INSERT INTO `usuario` (nome, email, senha, rsenha, cidade, bairro, 
+    curso, data_de_nascimento, telefone, genero, nome_social, data_criacao, situacao) VALUES ";
+    $teste .= "('$nome', '$email', '$senha', '$rsenha', '$cidade', '$bairro', '$curso', 
+    '$data', '$tele', '$sexo', '$nomes', '$ano', 0)";
 
     if (mysqli_query($conexao, $teste)) {
-      $_SESSION['autorizado'] = true;
+      $_SESSION['notificacao'] = 3;// notificação de cadastro concluido
       $consulta = "SELECT `idusuario` FROM `usuario` WHERE email = '{$email}'";
       $resultado = mysqli_query ($conexao, $consulta) or die ('Não foi possível conectar');
       $quant = mysqli_num_rows($resultado);
-      for($i=0;$i<$quant;$i++){
-        $rows=$resultado->fetch_assoc();
-        $id = $rows['idusuario'];
-      }
+      $rows=$resultado->fetch_assoc();
+      $id = $rows['idusuario'];
       mysqli_close($conexao);
-      mkdir('fotos/'.$id.'/');
-	  mkdir('fotos/'.$id.'/ProfPic/');
-	  mkdir('fotos/'.$id.'/postagem/');
-	  mkdir('fotos/'.$id.'/Album/');
+      mkdir('fotos/'.$id.'/');// Vai criar as pastas que vão armagenar as fotos
+	    mkdir('fotos/'.$id.'/ProfPic/');/**VER se é a melhor forma */
+	    mkdir('fotos/'.$id.'/postagem/');
+	    mkdir('fotos/'.$id.'/Album/');
       mysqli_close($conexao);
-      header('Location: cadastro.php');
-      exit();
     } else {
       mysqli_close($conexao);
-      $_SESSION['nao_autorizado2'] = true;
-      header('Location: cadastro.php');
-      exit();
+      $_SESSION['notificacao'] = 2;// notificação de e-mail já cadastrado
     }
   }
-  header('Location: cadastro.php');
+  header('Location: cadastro.php');//para retorna a pagina cadastro.php
 ?>

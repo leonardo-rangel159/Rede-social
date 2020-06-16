@@ -1,78 +1,51 @@
 <?php
 include('verifica-login.php');
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8"/>
-	<link rel="stylesheet" type="text/css" href="_css/login.css">
-   	<script type="text/javascript">
-	    startList = function() {
-	    if (document.all&&document.getElementById) {
-	    navRoot = document.getElementById("menuDropDown");
-	    for (i=0; i<navRoot.childNodes.length; i++) {
-	    node = navRoot.childNodes[i];
-	    if (node.nodeName=="LI") {
-	    node.onmouseover=function() {
-	    this.className+=" over";
-	      }
-	      node.onmouseout=function() {
-	      this.className=this.className.replace
-	      (" over", "");
-	       }
-	       }
-	      }
-	     }
-	    }
-	    window.onload=startList;
-	</script>
-</head>
-<body>
-<font size="3" face="arial">
-	<style>
-		body{
-			background-image:url("_imagens/bgverde.jpg");
-			background-attachment:fixed;
-			background-size:100% 100%;
-			background-repeat:no-repeat;
-		}
-	</style>
-	<!-- menu da pagina -->
-			<div id="interface">
-					<!-- Incio da barra de pesquisa -->
-					<table>
-						<tr>
-							<td>
-								<form method="post" action="pesquisa.php">
-								<div id="divBusca">
-								<input type="text" id="txtBusca" name="busca" placeholder="Buscar..."/>
-								<button id="btnBusca" type="submit">
-									<img src="_imagens/1.png"/>
-								</button>
-								</div>
-								</form>
-							</td>
-							<td>
-								<nav id="menu">
-									<ul> 
-									    <li><a href="#"><b>Configuração</b></a>
-									      <ul> 
-									        <li><a href="pagina-pricipal.php">Inicio</a></li> 
-									        <li><a href="perfil.php">Perfil</a></li> 
-									        <li><a href="fotos.php">Fotos</a></li> 
-									        <li><?php echo "<a href='amigo.php?id=".$_SESSION['id']."'>";?>Amigos</a></li>
-									        <li><a href="logout.php"><b>Sair</b></a></li> 
-									      </ul> 
-										</li>
-									</ul>
-								</nav>
-							</td>
-						<!-- Fim da barra de pesquisa -->
-						</tr>
-					</table>
-			</div>
-			</font>
-		<!-- Fim de menu -->
+<!-- menu da pagina -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<!-- Imagem do usuario -->
+			<a class=" navbar-brand" href="pagina-pricipal.php">
+				<img id='imgperf' <?php include('foto_perfil.php'); ?> width=30 height=30>
+			</a>
+		<!-- Fim de imagem de usuario -->
+				
+		<!-- Botão aparece em tela pequenas -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" 
+			data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+			aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		<!-- Fim botão aparece em tela pequenas -->
 
-</body>
-</html>
+		<div class="collapse navbar-collapse col-11" id="navbarSupportedContent">
+			<!-- Barra de pequesa -->
+				<form method="post" action="pesquisa.php" class="form-row col-xl form-inline">
+					<input type="text" id="txtBusca" class="form-control col-9" name="busca" 
+					placeholder="Buscar..." aria-label="Search"/>
+							
+					<button id="btnBusca" type="submit" class="form-control col-2 btn btn">
+						<img src="_imagens/1.png"/>
+					</button>	
+				</form>
+			<!-- Fim de barra de pequisa -->
+					
+			<!-- Menu de opções -->
+				<ul class=" navbar-nav mr-auto"> 
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<b>Configuração</b>
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="pagina-pricipal.php">Inicio</a>
+							<a class="dropdown-item" href="perfil.php">Perfil</a>
+							<a class="dropdown-item" href="fotos.php">Fotos</a>
+							<?php echo "<a class='dropdown-item' href='amigo.php?id=".$_SESSION['id']."'>";?>Amigos</a>
+							<a class="dropdown-item" href="logout.php"><b>Sair</b></a>
+						</div>		
+					</li>
+				</ul>
+			<!-- Fim de menu de opções -->
+						
+		</div>
+	</nav>
+<!-- Fim de menu -->

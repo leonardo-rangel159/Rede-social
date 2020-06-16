@@ -1,38 +1,59 @@
-<?php
-	include('conexao.php');
-	include('menu.php');
-	include('amigos-online.php');
-?>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>IFFriends</title>
 		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 		<title>IFFTool</title> <!-- Nome que pagina tem -->
+
 		<link rel="stylesheet" type="text/css" href="_css/login.css"> <!-- Onde fica o arquivo de estilo da pagina -->
 		<link rel="shortcut icon" href="_imagens/icone.ico" type="image/x-icon" /><!-- Icone que fica na pagina -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">	
+	   	<script src="_javascript/funcoes.js" type="text/javascript"></script>
 	</head>
 	<body>
-			<div id="postagens">
-				<center>
-					<table id="postagens">
+		<?php
+			error_reporting(0);
+			include('conexao.php');
+			include('menu.php');
+			include('amigos-online.php');
+		?>
+		<div id="postagens" class="container">
+			<div id="postagens1" class="row col-12">
 					
-						<tr id="postagens">
-							<td id="postagens"><a href=perfil.php> <?php include('foto_perfil.php'); ?></a></td>
+				<div id="postagens2" class="col-2">
+					<a href=perfil.php> 
+						<img id='imgperf1' <?php include('foto_perfil.php'); ?> width='150' height='150'>
+					</a>
+				</div>
 
-							<form method="post" action="postagem.php" enctype="multipart/form-data">
-								<td id="postagens1"><textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"></textarea>
-									<input type="file" name="arquivo" role="button" accept="video/mp4, image/jpeg" id="foto-video">
-									<label for="foto-video"><img id="foto" src="_imagens/teste.png"></label></td>
-													
-							<td id="postagens2"> <input type="submit" value="Enviar" id="botao"></td>
-							</form>
-						</tr>
+				<form method="post" action="postagem.php" enctype="multipart/form-data">
+					<div id="postagens3" class="input-group">
+						<div class="col-xl-8">
+							<textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"></textarea>
+						</div>
+						<div class="col-1"></div>
 						
-					</table>
-				</center>
+						<div id="postagens4" class="col-sm-2">
+							<div class="row input-wrapper">
+  									<label for='input-file'>foto/videos</label>
+									<input id='input-file' type='file' value='' name="arquivo" role="button" 
+									  accept="video/mp4, image/jpeg" class="custom-file-input"/>
+  									<span id='file-name'></span>
+							</div>
+							<div class="row">
+								<input type="submit" value="Enviar" id="botao" class="btn">
+							</div>
+						</div>
+						
+					</div>
+				</form>
+				
+						
+			</div>
 				<hr>
-				<center>
 					<table id="postagens1">
 				
 
@@ -142,5 +163,8 @@
 				</center>
 			</div>
 		
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 	</body>
 </html>

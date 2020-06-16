@@ -1,4 +1,4 @@
-@charset"UTF-8";
+/*@charset"UTF-8";
 *{margin: 1; padding: 1}
 html, body{
   height: 100%;
@@ -10,7 +10,7 @@ html, body{
   }
 
 /* estilo do menu */
-  div#interface{
+  /*div#interface{
     position: all;
     overflow: hidden;
     width: 100%;
@@ -21,7 +21,7 @@ html, body{
     }
 
   /*barra de pesquisa*/
-    #divBusca{
+    /*#divBusca{
       background-color:#E0EEEE;
       border:solid 2px #5F9EA0;
       border-radius:10px;
@@ -56,7 +56,7 @@ html, body{
       }
   /*fim da barra de pesquisa*/
 /*Configurações Padrões*/
-  nav#menu{
+  /*nav#menu{
   overflow-x: hidden;
   overflow-y: auto;
   display: block;
@@ -91,10 +91,10 @@ html, body{
      border: 1px solid #ccc; 
   }
   /* Fix IE. Hide from IE Mac \*/
-  * html ul li { float: left; }
+  /** html ul li { float: left; }
   * html ul li a { height: 1%; }
   /* End */
-  li:hover ul { display: block; }
+  /*li:hover ul { display: block; }
   ul li a:hover{
   text-decoration:underline;
   font-weight: bold;
@@ -102,7 +102,7 @@ html, body{
 
 /* Fim do estilo do menu */
 
-td{
+/*td{
   width: 10%;
   }
 h1{
@@ -124,7 +124,7 @@ hr{
 }
 
 /*amigos online*/
-  div#online{
+  /*div#online{
   float:right;
   width: 20%;
   height: 90px;
@@ -219,7 +219,7 @@ hr{
 /*Fim de amigos online */
 
 /*conversa*/
-  div#postagens{
+  /*div#postagens{
     float:right;
     display: block;
     width: 79%;
@@ -290,7 +290,7 @@ img#imgperf {
 }
 
 /*IMAGEM DE PERFIL*/
-img#imgperf {
+/*img#imgperf {
   border-radius:50%;
  max-width: 50000px;
   max-height: 50000px;
@@ -298,10 +298,146 @@ img#imgperf {
 
 }
 /*IMAGEM DE PERFIL(AMIGO)*/
-img#imgperfamigo {
+/*img#imgperfamigo {
   border-radius:50%;
  max-width: 50000px;
   max-height: 50000px;
   border: solid 5px green;
 
+}*/
+
+body{/*Fundo do site*/
+  background-image:url("../_imagens/bgverde.jpg");
+  background-attachment:fixed;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+}
+
+/* Menu */
+#imgperf{/*Arredondar imagem*/
+  border-radius:50%;
+  max-width: 50000px;
+  max-height: 50000px;
+}
+#btnBusca:hover{/*mudar o fundo do botão do menu*/
+  background-color: rgb(255, 255, 255);
+}
+/* Fim menu*/
+
+/* amigos online */
+#on{/*Div que contem as outras de amifos online*/
+  width: 20%;
+  height: 5%;
+}
+#texto{/*cor do titulo*/
+  color: white;
+}
+#amigo{/*posicionar a paret que aparece amigos*/
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 100%;
+  
+}
+#nome-a{/*Se o nome for grande de mais apareca reticencia*/
+  font-size: 24pt;
+  white-space: nowrap; 
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.chatbox {/*posionar a div on*/
+  position: fixed;
+  bottom: 0;
+  right: 7px;
+  background-color: #fff;
+  font-family: 'Lato', sans-serif;
+
+  -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.chatbox__title {/*Criar a barra preta online*/
+  min-height: 50px;
+  padding-right: 10px;
+  background-color: #1f2836;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  cursor: pointer;
+
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-align-items: center;
+  align-items: center;
+}
+.chatbox__title h1 {/*posicionar o titulo*/
+  height: 50px;
+  margin: 0 0 0 15px;
+  line-height: 50px;
+  position: relative;
+  padding-left: 20px;
+
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+.chatbox__title h1:before {/*criar a bola verde*/
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: #4CAF50;
+  border-radius: 6px;
+
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* Fim amigos online */
+
+/*pagina-pricipal*/
+#postagens{/*div contener*/
+  border: 1px solid red;
+}
+#postagens1{/*div dos itens de postagem*/
+  margin: auto;
+  margin-top: 5%;
+}
+#imgperf1{/*Arredondar imagem*/
+  border-radius:50%;
+  max-width: 50000px;
+  max-height: 50000px;
+  border: solid 5px green; 
+}
+#postagens3{/*are dos itens tirando a foto*/
+  margin-top: 5%;
+  width: 150%;
+}
+#idpostagem{/*are de texto*/
+  width: 110%;
+  resize: none;
+}
+input[type='file'] {
+  display: none
+}
+.input-wrapper label {
+  background-color: #11dda0;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  padding: 10px 30px;
+  margin-bottom: 45px;
+}
+.input-wrapper label:hover, #botao:hover{
+  background-color: #18bb77
+}
+#botao{
+  background-color: #11dda0;
+  width: 300px;
 }
