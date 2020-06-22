@@ -21,18 +21,19 @@
 			include('amigos-online.php');
 		?>
 		<div id="postagens" class="container">
-			<div id="postagens1" class="row col-12">
+			<div id="postagens1" class="row col-xs-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center">
 					
-				<div id="postagens2" class="col-2">
+				<div id="postagens2" class="col-xl-2">
 					<a href=perfil.php> 
 						<img id='imgperf1' <?php include('foto_perfil.php'); ?> width='150' height='150'>
 					</a>
 				</div>
 
 				<form method="post" action="postagem.php" enctype="multipart/form-data">
-					<div id="postagens3" class="input-group">
-						<div class="col-xl-8">
-							<textarea name="postagem" id="idpostagem" rows="4" placeholder="Compartilhe os seus pensamentos"></textarea>
+					<div id="postagens3" class="input-group col-xl-12">
+						<div class="col-xl-8 form-group">
+							<textarea name="postagem" id="idpostagem" rows="4" class="form-control"
+							placeholder="Compartilhe os seus pensamentos"></textarea>
 						</div>
 						<div class="col-1"></div>
 						

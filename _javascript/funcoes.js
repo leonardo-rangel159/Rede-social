@@ -1,4 +1,4 @@
-
+let valor=0;
 function mostraCampo(obj) {
     var select=document.getElementById('Sexo')
     var txt = document.getElementById("Texto")
@@ -31,10 +31,12 @@ window.onload=startList;
         var $chatbox = $('.chatbox'),
             $chatboxTitle = $('.chatbox__title');
         $chatboxTitle.on('click', function() {
-            if(document.getElementById("on").style.height == "5%"){
+            if(document.getElementById("on").style.height != "85%"){
+                valor = document.getElementById("on").style.height;
                 document.getElementById("on").style.height = "85%";
             }else{
-                document.getElementById("on").style.height = "5%";
+                
+                document.getElementById("on").style.height = valor;
             }
         });
         

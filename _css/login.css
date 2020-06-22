@@ -314,101 +314,113 @@ body{/*Fundo do site*/
 }
 
 /* Menu */
-#imgperf{/*Arredondar imagem*/
-  border-radius:50%;
-  max-width: 50000px;
-  max-height: 50000px;
-}
-#btnBusca:hover{/*mudar o fundo do botão do menu*/
-  background-color: rgb(255, 255, 255);
-}
+  #imgperf{/*Arredondar imagem*/
+    border-radius:50%;
+    max-width: 50000px;
+    max-height: 50000px;
+  }
+  #btnBusca:hover{/*mudar o fundo do botão do menu*/
+    background-color: rgb(255, 255, 255);
+  }
 /* Fim menu*/
 
 /* amigos online */
-#on{/*Div que contem as outras de amifos online*/
-  width: 20%;
-  height: 5%;
-}
-#texto{/*cor do titulo*/
-  color: white;
-}
-#amigo{/*posicionar a paret que aparece amigos*/
-  margin-left: 5px;
-  margin-right: 5px;
-  width: 100%;
-  
-}
-#nome-a{/*Se o nome for grande de mais apareca reticencia*/
-  font-size: 24pt;
-  white-space: nowrap; 
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis; 
-}
+  #on{/*Div que contem as outras de amifos online*/
+    width: 20%;
+    height: 50px;
+    z-index: 1;
+  }
+  #texto{/*cor do titulo*/
+    font-size: 1rem;
+    color: white;
+    white-space: nowrap; 
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+  #amigo{/*posicionar a paret que aparece amigos*/
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100%;
+    
+  }
+  #nome-a{/*Se o nome for grande de mais apareca reticencia*/
+    font-size: 24pt;
+    white-space: nowrap; 
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
 
-.chatbox {/*posionar a div on*/
-  position: fixed;
-  bottom: 0;
-  right: 7px;
-  background-color: #fff;
-  font-family: 'Lato', sans-serif;
+  .chatbox {/*posionar a div on*/
+    position: fixed;
+    bottom: 0;
+    right: 7px;
+    background-color: #fff;
+    font-family: 'Lato', sans-serif;
 
-  -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
-  transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
 
-  display: -webkit-flex;
-  display: flex;
+    display: -webkit-flex;
+    display: flex;
 
-  -webkit-flex-direction: column;
-  flex-direction: column;
-}
-.chatbox__title {/*Criar a barra preta online*/
-  min-height: 50px;
-  padding-right: 10px;
-  background-color: #1f2836;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  cursor: pointer;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  .chatbox__title {/*Criar a barra preta online*/
+    min-height: 50px;
+    padding-right: 10px;
+    background-color: #1f2836;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    cursor: pointer;
 
-  display: -webkit-flex;
-  display: flex;
+    display: -webkit-flex;
+    display: flex;
 
-  -webkit-align-items: center;
-  align-items: center;
-}
-.chatbox__title h1 {/*posicionar o titulo*/
-  height: 50px;
-  margin: 0 0 0 15px;
-  line-height: 50px;
-  position: relative;
-  padding-left: 20px;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .chatbox__title h1 {/*posicionar o titulo*/
+    height: 50px;
+    margin: 0 0 0 15px;
+    line-height: 50px;
+    position: relative;
+    padding-left: 20px;
 
-  -webkit-flex-grow: 1;
-  flex-grow: 1;
-}
-.chatbox__title h1:before {/*criar a bola verde*/
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  background: #4CAF50;
-  border-radius: 6px;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+  .chatbox__title h1:before {/*criar a bola verde*/
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: #4CAF50;
+    border-radius: 6px;
 
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  @media only screen and (min-width: 0px) and (max-width: 669px){
+    #on{
+      display: none;
+    }
+  }
 /* Fim amigos online */
 
 /*pagina-pricipal*/
 #postagens{/*div contener*/
-  border: 1px solid red;
+  background-color: rgb(220, 255, 217);
 }
 #postagens1{/*div dos itens de postagem*/
   margin: auto;
   margin-top: 5%;
+  text-align: center;
 }
 #imgperf1{/*Arredondar imagem*/
   border-radius:50%;
@@ -416,12 +428,17 @@ body{/*Fundo do site*/
   max-height: 50000px;
   border: solid 5px green; 
 }
+#postagens2{
+  margin-top: 3%;
+} 
 #postagens3{/*are dos itens tirando a foto*/
-  margin-top: 5%;
-  width: 150%;
+  margin-top: 8%;
+}
+#postagens4{
+  text-align: center;
+  align-items: center;
 }
 #idpostagem{/*are de texto*/
-  width: 110%;
   resize: none;
 }
 input[type='file'] {
@@ -439,5 +456,10 @@ input[type='file'] {
 }
 #botao{
   background-color: #11dda0;
-  width: 300px;
+  padding: 10px 48.5px;
+}
+@media only screen and (min-width: 0px) and (max-width: 1199px){
+  #postagens4{
+    padding-left: 33%;
+  }
 }

@@ -1,6 +1,8 @@
 <?php
-include('verifica-login.php');
-?>
+/*include('verifica-login.php');*/
+session_start();
+include('conexao.php')
+?><link rel="stylesheet" type="text/css" href="_css/login.css">
 <!-- ver amigos online -->
 	<div id="on" class="float-xl-right chatbox chatbox--tray chatbox--empty">
 		<!-- Parte do titulo -->
