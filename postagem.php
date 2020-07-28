@@ -1,11 +1,15 @@
+<script>
+	var texto = document.getElementById("idpostagem").value);
+</script>
 <?php 
 	session_start();
 	include('conexao.php');
 	
 	$id = $_SESSION['id'];
-	$postagem = isset($_POST['postagem'])?$_POST['postagem']:"";
+	$postagem = isset($_POST['postagem'])?nl2br($_POST['postagem']):"";
 	$postagem1 = isset($_FILES['arquivo'])?$_FILES['arquivo']:"";
 	$data = date('Y-m-d');
+	
 	if (isset($postagem1['name']) && $postagem1['name'] != "") {
 		$file = $_FILES['arquivo'];
 		$numFile1 = $file['name'];
