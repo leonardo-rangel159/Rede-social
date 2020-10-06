@@ -131,7 +131,7 @@
 										
 									if ($rows1['nome_social']!="") {$nome=$rows1['nome_social'];}else{$nome=$rows1['nome'];}
 									if ($rows1['foto_perfil']!="") {$foto=$rows1['foto_perfil'];}else{$foto="_imagens/profpic.jpg";}
-									echo $consulta1;
+									
 									$postagem = $rows['postagemtexto'];//texto
 									$postagem1 = $rows['postagem-fv'];// Video ou foto
 
@@ -142,32 +142,49 @@
 											$nome
 										</div>
 									";
-									echo"<div id='publicacao1' class='row col-xs-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center'>";
-									if (isset($postagem) && $postagem1=="") {
-										echo "<p class='text-center'><font face=arial>$postagem</font></p>";
-									}elseif (isset($postagem) && isset($postagem1)) {
-										if ($extensao == "mp4") {
-										echo "<td class='postagens1'><font face=arial>$postagem</font><br><br>";
-										echo "<video controls>
-										<source id='postagens1' src=".$postagem1." type='video/mp4'>
-										Desculpa mas não é possivel exibir o video
-										</video><br></td>";
+									echo"
+										<div id='publicacao1' class='row col-xs-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center' align='center'>
+										
+									";
+									if(isset($postagem)) {
+										echo "
+											<div>
+												<p class='text-center'><font face=arial>$postagem</font></p>
+											</div>
+										";
+										if ($postagem1!="") {
+											if ($extensao == "mp4") {
+												echo "
+													<div>
+														<video controls>
+															<source id='postagens1' src=".$postagem1." type='video/mp4'>
+															Desculpa mas não é possivel exibir o video
+														</video>
+													</div>
+												";
+											}else{
+												echo "
+													<img id='postagens1' class='d-flex justify-content-around' src=".$postagem1.">
+												";
+											}
+										}
 									}else{
-										echo "<td class='postagens1'><font face=arial>$postagem</font><br><br>";
-										echo "<img id='postagens1' src=".$postagem1."><br></td>";
-									}
-									}
-									else{
 										if ($extensao == "mp4") {
-											echo "<td class='postagens1'><video controls>
-										<source id='postagens1' src=".$postagem1." type='video/mp4'>
-										Desculpa mas não é possivel exibir o video
-										</video><br></td>";
-									}else{
-										echo "<td class='postagens1'><img id='postagens1' src=".$postagem1."><br></td>";
+											echo "
+												<div class='d-flex justify-content-center'>
+													<video controls>
+														<source id='postagens1' src=".$postagem1." type='video/mp4'>
+														Desculpa mas não é possivel exibir o video
+													</video>
+												</div>
+											";
+										}else{
+											echo "
+												<img id='postagens1' src=".$postagem1.">
+											";
+										}
 									}
-									}
-									echo "</div><br>";
+									echo "</div>";
 							}
 						}
 				            mysqli_close($conexao);
